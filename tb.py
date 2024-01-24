@@ -34,6 +34,19 @@ p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18,
     APoint(7.4, 1.15), APoint(15.65, 1.15),
     APoint(0.15, 0.9), APoint(3.4, 0.9)]
 
+if PAGE_NUMBER == "1":
+    trcorner = APoint(p2[0] + 3, p2[1])
+
+    DISTANCE = 0.333
+    i = 1
+    while i <= 10:
+        point1 = APoint(p2[0], p2[1] - (DISTANCE * i))
+        point2 = APoint(trcorner[0], trcorner[1] - (DISTANCE * i))
+        point3 = APoint(trcorner[0], trcorner[1] - (DISTANCE * (i - 1)))
+        layout1.AddLine(point1, point2)
+        layout1.AddLine(point2, point3)
+        i += 1
+
 
 # create titleblock shape
 line1 = layout1.AddLine(p1, p2)
