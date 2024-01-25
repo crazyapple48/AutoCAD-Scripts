@@ -48,8 +48,10 @@ if PAGE_NUMBER == "1":
         point1 = APoint(p2[0], p2[1] - (DISTANCE * i))
         point2 = APoint(trcorner[0], trcorner[1] - (DISTANCE * i))
         point3 = APoint(trcorner[0], trcorner[1] - (DISTANCE * (i - 1)))
-        layout1.AddLine(point1, point2)
-        layout1.AddLine(point2, point3)
+        mline1 = layout1.AddLine(point1, point2)
+        mline2 = layout1.AddLine(point2, point3)
+        mline1.layer = "0"
+        mline2.layer = "0"
         i += 1
 
 
