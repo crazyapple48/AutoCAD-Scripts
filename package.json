@@ -1,0 +1,15 @@
+{
+  "name": "autocad-helper",
+  "version": "1.0.0",
+  "description": "application to speed workflow in autocad",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "test"
+  },
+  "author": "Kevin Penner",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.2.0"
+  }
+}
