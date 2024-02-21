@@ -9,7 +9,7 @@ layout1 = acad.doc.PaperSpace
 DESIGNER = "Douglas Clark"
 DIRECTOR = "Anthony Daniels"
 SHOW = "Charlie and the\nChocolate Factory"
-SCALE = '1/2" = 1\''
+SCALE = '3/8" = 1\''
 CURRENTDATE = datetime.now()
 CURRENTMONTH = CURRENTDATE.month
 CURRENTYEAR = CURRENTDATE.year

@@ -1,44 +1,50 @@
-""" Main GUI File using PyQT5 """
+""" Main GUI File using CustomTkinter """
 
-import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QGridLayout
-from PyQt5.QtGui import QPalette, QColor
-
-
-class Color(QWidget):
-
-    def __init__(self, color):
-        super(Color, self).__init__()
-        self.setAutoFillBackground(True)
-
-        palette = self.palette()
-        palette.setColor(QPalette.Window, QColor(color))
-        self.setPalette(palette)
+import tkinter as tk
+import customtkinter as ctk
 
 
-class MainWindow(QMainWindow):
+# window
+window = ctk.CTk()
+window.title("AutoCAD Scripts")
+window.geometry('1080x720')
 
-    def __init__(self):
-        super(MainWindow, self).__init__()
-
-        self.setWindowTitle("My App")
-
-        layout = QGridLayout()
-
-        layout.addWidget(Color('red'), 0, 0)
-        layout.addWidget(Color('green'), 1, 0)
-        layout.addWidget(Color('blue'), 1, 1)
-        layout.addWidget(Color('purple'), 2, 1)
-
-        widget = QWidget()
-        widget.setLayout(layout)
-
-        self.setCentralWidget(widget)
+# functions
 
 
-app = QApplication(sys.argv)
+def run_tb_script():
+    """Runs tb.py Script"""
+    project = project_entry.get()
+    plate = page_title.get()
+    page = int(page_number.get())
+    page_var.set(page_var.get() + 1)
+    print(project)
+    print(plate)
+    print(page)
 
-window = MainWindow()
-window.show()
 
-app.exec()
+# widgets
+# title_block = ctk.CTkButton(
+#     window, text="Start Create TitleBlock", command=create_title_block)
+# title_block.pack()
+page_var = tk.IntVar(window, value=1)
+
+project_entry = ctk.CTkEntry(
+    window, placeholder_text="Enter Project Name")
+
+page_title = ctk.CTkEntry(window, placeholder_text="Enter Plate Title")
+
+page_number = ctk.CTkEntry(window, textvariable=page_var)
+
+project_entry.pack()
+page_title.pack()
+page_number.pack()
+
+
+submit_button = ctk.CTkButton(
+    window, text="Create TitleBlock", command=run_tb_script)
+submit_button.pack()
+
+
+# run
+window.mainloop()
