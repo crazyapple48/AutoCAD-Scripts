@@ -3,6 +3,7 @@
 import tkinter as tk
 import customtkinter as ctk
 
+from tb import create_tb
 
 # window
 window = ctk.CTk()
@@ -18,9 +19,7 @@ def run_tb_script():
     plate = page_title.get()
     page = int(page_number.get())
     page_var.set(page_var.get() + 1)
-    print(project)
-    print(plate)
-    print(page)
+    create_tb(project, plate, page)
 
 
 # widgets
