@@ -1,4 +1,5 @@
 """ Script to automatically create titleblock on open sheet """
+import sys
 from datetime import datetime
 from pyautocad import Autocad, APoint
 
@@ -10,9 +11,9 @@ def create_tb(project, plate_title, page_number):
 
     layout1 = acad.doc.PaperSpace
 
-    DESIGNER = "Douglas Clark"
-    DIRECTOR = "Anthony Daniels"
-    SHOW = "Charlie and the\nChocolate Factory"
+    DESIGNER = "Christian Fleming"
+    DIRECTOR = "Danny Gorman"
+    SHOW = "Gentleman's Guide\nto Love and Murder"
     SCALE = '3/8" = 1\''
     CURRENTDATE = datetime.now()
     CURRENTMONTH = CURRENTDATE.month
@@ -113,3 +114,11 @@ def create_tb(project, plate_title, page_number):
 
     pageNumber = layout1.AddMText(APoint(16, 1.15), 1, f'{PAGE_NUMBER}')
     pageNumber.Height = 0.5
+
+
+project = input("Project: ")
+plate = input("Plate: ")
+page = input("Page: ")
+
+
+create_tb(project, plate, page)
